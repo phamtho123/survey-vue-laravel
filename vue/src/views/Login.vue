@@ -20,7 +20,7 @@
         </p>
     </div>
     <form class="mt-8 space-y-6" @submit="login">
-        <div v-if="errorMsg" class="py-3 px-5 bg-red-500 text-white rounded">
+        <Alert v-if="errorMsg">
             {{ errorMsg }}
             <span
                 @click="errorMsg = ''"
@@ -41,7 +41,7 @@
                     />
                 </svg>
             </span>
-        </div>
+        </Alert>
         <input type="hidden" name="remember" value="true" />
         <div class="rounded-md shadow-sm -space-y-px">
             <div>
@@ -144,6 +144,7 @@ import { LockClosedIcon } from "@heroicons/vue/solid";
 import store from "../store";
 import { useRouter } from "vue-router";
 import { ref } from "@vue/reactivity";
+import Alert from "../components/Alert.vue"
 
 const router = useRouter();
 
